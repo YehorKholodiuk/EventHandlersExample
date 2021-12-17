@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Counter from "./Counter";
 
 function App() {
+
+  const counters = [1, 2, 3]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <h1>Counters</h1>
+        {counters.map(el =>
+            <Counter counter={el}/>
+        )}
+        <hr/>
+        <input
+            type="number"
+            placeholder={'add new counter'}
+            onChange={(event) => console.log(event.target.value)}
+        />
+      </div>
   );
 }
 
